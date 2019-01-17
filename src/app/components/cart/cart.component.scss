@@ -1,0 +1,23 @@
+$txt-color: rgb(255, 255, 255);
+$bg-color:grey;
+$radius: 5px;
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+  }
+
+div {
+    @include border-radius(10px);
+    color: $txt-color;
+    background:$bg-color;
+    padding: 10px;
+    border: 1px solid black;
+    width: 40%;
+}
+span, input, button {
+    margin:3px;
+    border: 1px dotted darkgray;
+}
