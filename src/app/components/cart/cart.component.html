@@ -6,9 +6,9 @@
   <div>
     <ul>
       <li *ngFor='let product of cart;'>
-        <span>{{product.ProductId}}</span>
-        <span>{{product.ProductName}}</span>
-        <span>{{product.ProductModel}}</span>
+        <span>{{product.productId}}</span>
+        <span>{{product.productName}}</span>
+        <span>{{product.productModel}}</span>
       </li>
     </ul>
   </div>
@@ -19,7 +19,7 @@
     <input (input)="formModel=$event.target.value" type="text" name="Model" placeholder="Add Model">
     <input (input)="formVendor=$event.target.value" type="text" name="Vendor" placeholder="Add Vendor">
   
-  <button (click)="onAddProduct()">Add Product</button>
+  <button (click)="onAddProduct();">Add Product</button>
 </div>
 <h2>Child-component</h2>
 <div>

@@ -1,4 +1,4 @@
 
 export class Cart {
-    constructor(public ProductId: number, public ProductName: string, public ProductModel: string, public ProductCount: number) { }
+    constructor(public productId: number, public productName: string, public productModel: string, public productCount: number) { }
 }

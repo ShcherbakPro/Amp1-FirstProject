@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
   name = 'Tom';
   age = 24;
   // @Input() tmp: string;
-  public formVendor = 'Noname';
+  @Input() formVendor = 'Noname';
   public formModel = 'Noname';
   constructor(private cartService: CartService) { }
 
@@ -25,11 +25,14 @@ export class CartComponent implements OnInit {
     this.isEmptyCartFlag = this.isEmptyCart(this.cart);
   }
   public onAddProduct() {
-    this.currentCartLength = this.cart.length + 1;
-    this.cart.push(new Product(this.currentCartLength, this.formModel, this.formVendor ));
-    this.cart.forEach((v) => {
-      console.log (v);
-    });
+    this.cartService.addProduct(this.cart, this.currentCartLength, this.formModel, this.formVendor);
+    // this.currentCartLength = this.cart.length + 1;
+    // this.cart.push(new Product(this.currentCartLength, this.formModel, this.formVendor ));
+    // this.cart.forEach((v) => {
+    //   console.log (v);
+    // });
+    // this.formModel = '';
+    // this.formVendor = '';
   }
   private isEmptyCart(cart: Array<Product>) {
     if (this.cart.length > 0) {

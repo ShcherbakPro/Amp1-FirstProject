@@ -1,8 +1,8 @@
 interface IProduct {
-    ProductId: number;
-    ProductName?: string;
-    ProductModel?: string;
+    productId: number;
+    productName?: string;
+    productModel?: string;
 }
 export class Product implements IProduct {
-    constructor(public ProductId: number, public ProductName: string, public ProductModel: string) { }
+    constructor(public productId: number, public productName: string, public productModel: string) { }
     }
