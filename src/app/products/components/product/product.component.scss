@@ -1,0 +1,18 @@
+$txt-color: rgb(0, 0, 0);
+$bg-color:lightblue;
+$radius: 5px;
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+  }
+
+div {
+    @include border-radius(10px);
+    color: $txt-color;
+    background:$bg-color;
+    padding: 10px;
+    border: 1px solid black;
+}
