@@ -1,4 +1,11 @@
-<div>
+
+<app-product
+*ngFor="let product of products"
+[product]="product"
+(complete)="onCompleteTask($event)">
+</app-product>
+
+<!-- <div>
   <ul>
     <li *ngFor='let product of products;'>
       <span>{{product.productId}}</span>
@@ -6,4 +13,10 @@
       <span>{{product.productModel}}</span>
     </li>
   </ul>
-</div>
+</div> -->
+
+<!-- <div>
+  <button name="btn2" (click)="onBuy()">Buy</button>
+</div> -->
+
+

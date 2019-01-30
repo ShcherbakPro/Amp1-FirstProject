@@ -1,0 +1,16 @@
+<div>
+  <h1>Product</h1>
+  <p>Id: {{product.productId}} </p>
+  <p>Model: {{product.productModel}} </p>
+  <p>Name: {{product.productName}} </p>
+  <p>Есть в наличии: {{product.isAvailable}} </p>
+
+
+  <button (click)="onCompleteTask($event)" *ngIf="product.isAvailable; else disableButton">Add to cart</button>
+
+</div>
+
+
+<ng-template #disableButton>
+    <button (click)="onCompleteTask($event)" disabled>Add to cart</button>
+</ng-template>

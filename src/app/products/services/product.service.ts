@@ -9,8 +9,8 @@ export class ProductService {
 
   getProducts(): Array<Product> {
     return [
-      new Product(1, 'Printer', 'HP Laserjet'),
-      new Product(2, 'Monitor', 'Samsung')
+      new Product(1, 'Printer', 'HP Laserjet', true),
+      new Product(2, 'Monitor', 'Samsung', false)
     ];
   }
 }
