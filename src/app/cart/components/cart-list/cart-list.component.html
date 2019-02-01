@@ -5,7 +5,7 @@
   </div>
   
   <ng-template #templateCart>
-    <div>
+    <!-- <div>
       <ul>
         <li *ngFor='let product of cart.items'>
           <div>
@@ -15,16 +15,16 @@
         </div>
         </li>
       </ul>
+    </div> -->
+    <div>Cart - AutoUpdate List</div>
+    <div class="app">
+      <app-cart [cartItems]="cart" (cartChange)="getCartItems();"></app-cart>
     </div>
   </ng-template>
 
-     <!-- <div class="app">
-    <app-cart [cartItems]="cart" (cartChange)="myCartChange($event);"></app-cart>
-  </div>  -->
-
-  <div>
+  <!-- <div>
     <ul>
-      <li *ngFor='let product of cartItems'>
+      <li *ngFor='let product of cart.items'>
         <div>
         <span>{{product.productId}}</span>
         <span>{{product.productName}}</span>
@@ -32,23 +32,9 @@
       </div>
       </li>
     </ul>
-  </div>
-
-  <!-- <div class="app">
-    <app-cart [counterValue]="myValue" (counterChange)="myValueChange($event);"></app-cart>
   </div> -->
 
 
-  <!-- <section>
-    <div>
-       <label>Action:</label>
-       <input type="text" #actionField
-            (keyup)="setValues(actionField)">
-    </div>
-    
-    <app-cart-list
-        [action]="action">
-    </app-cart-list>
-  </section> -->
+
  
   

@@ -7,12 +7,21 @@
 
   <button (click)="onAddProduct()" *ngIf="product.isAvailable; else disableButton">Add to cart</button>
   <p>{{clickMessage}}</p>
-<div>
-  <pre>{{cart | json}}</pre>
-</div>
+    <pre>{{cart | json}}</pre>
+
+  <h2>AutoUpdate List</h2>
+  <div class="app">
+    <app-cart [cartItems]="cart" (cartChange)="myCartChange($event);"></app-cart>
+  </div>
 </div>
 
- <div>
+
+<ng-template #disableButton>
+  <button (click)="onCompleteTask($event)" disabled>Add to cart</button>
+</ng-template>
+
+  <!-- <h2> Cart List</h2>
+<div>
   <ul>
     <li *ngFor='let product of cart;'>
       <span>{{product.productId}}</span>
@@ -20,13 +29,4 @@
       <span>{{product.productModel}}</span>
     </li>
   </ul>
-</div>  
-
-<div class="app">
-  <app-cart [cartItems]="cart" (cartChange)="myCartChange($event);"></app-cart>
-</div>
-
-
-<ng-template #disableButton>
-    <button (click)="onCompleteTask($event)" disabled>Add to cart</button>
-</ng-template>
+</div> -->

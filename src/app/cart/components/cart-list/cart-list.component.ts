@@ -18,11 +18,12 @@ export class CartListComponent implements OnInit {
 
   public isEmptyCartFlag = true;
   currentCartLength = 0;
-  // @Input() action: string;
+
   public myValue = 2;
 
   myValueChange($event) {
     console.log($event);
+    this.cartItems = this.cartService.getCart();
   }
 
 
@@ -41,15 +42,11 @@ export class CartListComponent implements OnInit {
     }
   }
     getCartItems() {
-      console.log('fgfgfg');
       this.cartItems = this.cartService.getCart();
       this.cartChange.emit({
         value: this.cartItems
       });
     }
-  // setValues(actionField: HTMLInputElement, responsibleField: HTMLInputElement): void {
-  //     this.action = actionField.value;
-  // }
 
 
 }

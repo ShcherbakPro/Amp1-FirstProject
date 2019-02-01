@@ -7,7 +7,6 @@ import { Cart } from '../models/cart.model';
 })
 export class CartService implements OnInit {
   cart: Cart = new Cart();
-  // cart: Array<Product> = [new Product(1, 'Scanner', 'HP', true), new Product(2, 'TV', 'LG', false)];
   constructor() { }
   ngOnInit() {
 
