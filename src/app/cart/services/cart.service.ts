@@ -1,27 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Product } from '../../products/models/product.model';
 import { Cart } from '../models/cart.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
-  cart?: Array<Product>;
+export class CartService implements OnInit {
+  cart: Cart = new Cart();
+  // cart: Array<Product> = [new Product(1, 'Scanner', 'HP', true), new Product(2, 'TV', 'LG', false)];
   constructor() { }
-  // this.cart.push(new Product(1, 'Scanner', 'Noname', true)); this.cart.push(new Product(2, 'TV', 'Noname', false));
+  ngOnInit() {
 
-  getProducts(): Array<Product> {
+  }
+  getCart(): Cart {
     return this.cart;
   }
   public addProduct(product: Product) {
-    this.cart.push(product);
+    this.cart.items.push(product);
     console.log('log:' + product.productModel);
   }
-  // public addProduct(cart, currentCartLength, formModel, formVendor ) {
-  //   currentCartLength = cart.length + 1;
-  //   cart.push(new Product(currentCartLength, formModel, formVendor , true ));
-  //   cart.forEach((v) => {
-  //     console.log (v);
-  //   });
-  // }
 }

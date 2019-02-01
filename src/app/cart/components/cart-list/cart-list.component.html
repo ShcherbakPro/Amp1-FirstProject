@@ -1,3 +1,5 @@
+
+
 <div *ngIf="isEmptyCartFlag; else templateCart">
     Cart is Empty!
   </div>
@@ -5,13 +7,48 @@
   <ng-template #templateCart>
     <div>
       <ul>
-        <li *ngFor='let product of cart;'>
+        <li *ngFor='let product of cart.items'>
+          <div>
           <span>{{product.productId}}</span>
           <span>{{product.productName}}</span>
           <span>{{product.productModel}}</span>
+        </div>
         </li>
       </ul>
     </div>
   </ng-template>
 
+     <!-- <div class="app">
+    <app-cart [cartItems]="cart" (cartChange)="myCartChange($event);"></app-cart>
+  </div>  -->
+
+  <div>
+    <ul>
+      <li *ngFor='let product of cartItems'>
+        <div>
+        <span>{{product.productId}}</span>
+        <span>{{product.productName}}</span>
+        <span>{{product.productModel}}</span>
+      </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div class="app">
+    <app-cart [counterValue]="myValue" (counterChange)="myValueChange($event);"></app-cart>
+  </div> -->
+
+
+  <!-- <section>
+    <div>
+       <label>Action:</label>
+       <input type="text" #actionField
+            (keyup)="setValues(actionField)">
+    </div>
+    
+    <app-cart-list
+        [action]="action">
+    </app-cart-list>
+  </section> -->
+ 
   

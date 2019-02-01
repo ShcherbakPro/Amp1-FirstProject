@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../models/product.model';
 import { ProductService } from '../../../services/product.service';
 import { CartService} from '../../../../cart/services/cart.service';
+import { Cart } from 'src/app/cart/models/cart.model';
 // enum Categories { White, Black, Color }
 
 
@@ -18,31 +19,32 @@ import { CartService} from '../../../../cart/services/cart.service';
 export class ProductComponent {
   @Input()
   product: Product;
+  clickMessage: string;
+  cart: Array<Product>; // Cart;
+  // public cart: Cart;
+  // count = 0;
   @Output()
   complete: EventEmitter<Product> = new EventEmitter<Product>();
+
   constructor(private productsService: ProductService, private cartService: CartService) { }
 
   onCompleteTask(): void {
-    this.cartService.addProduct(this.product);
     console.log('product component, completeTask method:', this.product);
     this.complete.emit(this.product);
   }
-  // name = 'Printer';
-  // description = 'LaserJet';
-  // price = 1200;
-  // numberOfCategory = Categories.Black;
-  // category: string = Categories[1];
-  // isAvailable = true;
-  // list: number[] = [1, 2, 3];
-  // list2: Array<number> = [1, 2, 3];
-  // public tv: TV;
-
-  // constructor() {
-  //   this.tv = new TV('Samsung', Categories.Color);
-  // }
-
-  // ngOnInit() {
-  // }
+    onAddProduct(): void {
+      // this.count++;
+      // console.log($event);
+      this.cartService.addProduct(this.product);
+      console.log(this.product);
+      this.clickMessage = 'You clicked the button';
+      this.cart = this.cartService.getCart().items;
+      // this.cartItems = this.cartService.getCart();
+    }
+    myCartChange($event) {
+      console.log($event);
+       // this.cart = this.cartService.getCart();
+     }
 
 }
 

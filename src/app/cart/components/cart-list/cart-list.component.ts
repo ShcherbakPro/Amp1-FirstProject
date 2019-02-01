@@ -1,4 +1,4 @@
-import { Input, Component, OnInit } from '@angular/core';
+import { Input, Component, OnInit, Output, ChangeDetectionStrategy, OnChanges, SimpleChanges, EventEmitter } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../../products/models/product.model';
 import { Cart } from '../../models/cart.model';
@@ -7,27 +7,50 @@ import { Cart } from '../../models/cart.model';
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss'],
-  providers: [CartService]
+  providers: [CartService],
+  // changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class CartListComponent implements OnInit {
-  public cart: Array<Product>;
+  public cart: Cart;
+  @Input() cartItems: Cart;
+  @Output() cartChange = new EventEmitter();
+
   public isEmptyCartFlag = true;
   currentCartLength = 0;
+  // @Input() action: string;
+  public myValue = 2;
 
-  constructor(private cartService: CartService) { }
-
-  ngOnInit() {
-    this.cart = this.cartService.getProducts();
-    this.isEmptyCartFlag = this.isEmptyCart(this.cart);
+  myValueChange($event) {
+    console.log($event);
   }
 
-  private isEmptyCart(cart: Array<Product>) {
-    if (this.cart.length > 0) {
+
+  constructor(private cartService: CartService) { }
+  ngOnInit() {
+    this.cart = this.cartService.getCart();
+    this.cartItems = this.cartService.getCart();
+    this.isEmptyCartFlag = this.isEmptyCart();
+    console.log('init cartlistcomp');  }
+
+  private isEmptyCart() {
+    if (this.cart.items.length > 0) {
       return false;
     } else {
       return true;
     }
   }
+    getCartItems() {
+      console.log('fgfgfg');
+      this.cartItems = this.cartService.getCart();
+      this.cartChange.emit({
+        value: this.cartItems
+      });
+    }
+  // setValues(actionField: HTMLInputElement, responsibleField: HTMLInputElement): void {
+  //     this.action = actionField.value;
+  // }
+
 
 }
 

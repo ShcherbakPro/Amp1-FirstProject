@@ -5,9 +5,25 @@
   <p>Name: {{product.productName}} </p>
   <p>Есть в наличии: {{product.isAvailable}} </p>
 
+  <button (click)="onAddProduct()" *ngIf="product.isAvailable; else disableButton">Add to cart</button>
+  <p>{{clickMessage}}</p>
+<div>
+  <pre>{{cart | json}}</pre>
+</div>
+</div>
 
-  <button (click)="onCompleteTask($event)" *ngIf="product.isAvailable; else disableButton">Add to cart</button>
+ <div>
+  <ul>
+    <li *ngFor='let product of cart;'>
+      <span>{{product.productId}}</span>
+      <span>{{product.productName}}</span>
+      <span>{{product.productModel}}</span>
+    </li>
+  </ul>
+</div>  
 
+<div class="app">
+  <app-cart [cartItems]="cart" (cartChange)="myCartChange($event);"></app-cart>
 </div>
 
 

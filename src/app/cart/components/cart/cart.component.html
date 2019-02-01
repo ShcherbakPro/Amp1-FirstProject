@@ -1,0 +1,32 @@
+<p>
+  cart works!
+</p>
+
+
+<!-- <div class="app">
+  <app-cart-list [counterValue]="myValue" (counterChange)="myValueChange($event);"></app-cart-list>
+</div> -->
+
+        <!-- <button type="button" (click)="decrement();">
+          <span >-</span>
+        </button>
+
+      <input type="text" [value]="counterValue">
+
+      <span class="input-group-btn">
+        <button  type="button" (click)="increment();">
+          <span>+</span>
+        </button> -->
+        <!-- <input type="text" [value]="cartItems.items"> -->
+
+        <div>
+          <ul>
+            <li *ngFor='let product of cartItems.items'>
+              <div>
+              <span>{{product.productId}}</span>
+              <span>{{product.productName}}</span>
+              <span>{{product.productModel}}</span>
+            </div>
+            </li>
+          </ul>
+        </div>
